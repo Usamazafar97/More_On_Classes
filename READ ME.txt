@@ -1,0 +1,219 @@
+
+Task 1
+Write a class named as Holiday that represents a holiday during the year. This class has three private data
+members:
+ name: A string that represents the name of holiday.
+ day: An integer that holds the day of the month of holiday.
+ month: A string that holds the month the holiday is in.
+
+1. Write a default constructor that initializes each data member of class such that name with NULL, day
+with 0 and month with NULL
+Holiday()
+Note*:Use member function initialization for all data members.
+
+2. Write a constructor that accepts the arguments for each data member such that string n assigned
+to name, int d to day and string m to month.
+Holiday(const string &n, int d, const string &m)
+Note*:Use member function initialization for all data members.
+
+3. Generate getter setter of each member variable : such that name should never be greater than 50
+characters, day should never be negative and month should not be greater than 10 characters.
+ bool setName(const string &s)
+ string getName() const
+ bool setDay(int u)
+ int getDay() const
+ bool setMonth(const string &p)
+ string getMonth() const
+
+4. Write a global function inSameMonth in main le which takes two Holiday objects as arguments, com-
+pares two objects of the class Holiday, and returns true if they have the same month otherwise false.
+bool inSameMonth (const Holiday &a, const Holiday &b)
+
+5. Write a global function avgDate in main le which takes an array of type Holiday and its size as its
+argument and returns a double that is the average of all the day data member in the Holiday array
+arr. You may assume that the array is full (i.e. does not have any NULL entries).
+double avgDate(Holiday arr[], int size)
+
+Task 1.2
+Write a class named as Car to manages the cars information .This class has following private data members:
+ regNo: An String that represents the registration id of car.
+ entryTime: A integer that represents the entry time of the car in 24h format.
+ exiteTime: A integer that represents the exit time of the car in 24h format.
+Generate getter setter for each data member of the class. *Note: Use validations : exit time of the car
+should always be greater than entry time of the car.
+
+Task 2
+Write a class named as ParkingGarage that should be able to simulate a basic parking garage with the
+following functionality:
+Parking Garagae has parked cars.Your garage should have a xed capacity (by default 5 cars). For each
+car stationed at your garage you will record its entry time (current day hour in 24h format), its registration
+number. A new car cannot be parked if the garage capacity is already full.
+Whenever a new car arrives at your garage you will add it to the garage if the capacity is not full. When
+a car leaves the garage you will ask the user current time (current hour in 24 hour format) and charge him
+Rs. 20 per hour, and update noOfOccupied accordingly.
+ParkingGarage contains following private data members:
+ capacity:This is a constant data member of type integer.
+ noOfOccupied: An integer that holds the value of occupied slots of parking.
+ carPointer: A pointer of type Car that holds the informations of parked cars in garage.
+ amountCollected : a double type variable which contains the total charges of all cars(calculated when
+cars are removed).
+
+2.1 Write a default constructor that initializes each data member of class such that capacity with 5, noOfOc-
+cupied with 0, amountCollected with 0 and carPointer with array of type car having size of capac-
+ity.(Constant Members are initialized with Member Initialization list)
+ParkingGarage()
+
+2.2 Write a parameterized Constructor that receives c capacity as argument and initializes each data member
+of class such that capacity with c , noOfOccupied with 0, amountCollected with 0 and carPointer with
+array of type car having size of c ParkingGarage(int c)
+
+2.3 Generate getter setter of each data member: such that noOfOccupied should never be greater than
+capacity.
+ int getRemainingCapacity() const
+ double getAmountCollected() const
+ bool IsFull()const Should return whether Garage is full or not.
+ Write a member function which add a new car to the Garage (having registration number in regn-
+Number and entry time in entryTime as arguments) if garage is not full. You should return true if
+car parked other wise false.
+bool ParkCar(const string &regnNumber,int entryTime ).
+ write a member function which removes a car given arguments(having registration number in reg-
+nNumber and entry time in exitTime ). You should remove the car updating its exit time, adding
+its charges to amountCollected and return the charges of that particular car.
+double RemoveCar(const string &regnNumber,int exitTime ).
+
+Task 3
+Write a class named as Student to manages the Students information .This class has following private data
+members:
+ rollNo: An integer that represents the id of student.
+ name: A string that represents the name of the student.
+ address : A string that represents the address of the student.
+ batch: An integer that holds the batch number of student.
+
+3.1 Write a default constructor that initializes each data member of class such that name with NULL, rollNo
+with 0, address with NULL and batch with 0. Student()
+
+3.2 Write a constructor that accepts the arguments for each data member such that int r assigned to
+rollNo, string n assigned to name, String ad assigned to address and int b assigned to batch.
+Student(int r, const string &n, const string &ad, int b)
+
+3.3 Generate getter setter of each data member : such that rollNo should not have negative value, name
+should never be greater than 50 characters, address should never be greater than 90 characters and batch
+should not have negative value.
+ bool setRollNo(int r)
+ int getRollNo() const
+ bool setName(const string &n)
+ string getName()const
+ bool setAddress(const string& ad)
+ string getAddress() const
+ bool setBatch(int b)
+ int getBatch()const
+
+3.4 Write a class named as Section to manage a section of students. This class has following private data
+members:
+ sectionName: A character that represents the name of section.
+ studentPtr*: A pointer of type student pointing to the array of student objects created on heap
+memory.
+ sectionStrength: An constant integer that represents the maximum number of allowed students in
+a section.
+ currentStudent: an integer that represnts the number of students currently present in a section.
+
+3.5 Write a default constructor that initializes each data member of class such that sectionName with null
+character, studentPtr* with NULL and studentPtr* with 0 and currentStudent with 0
+Section().
+
+3.6 Write a parameterized constructor that that receives 's' strength and 'name' section Name as argu-
+ment,you need to initialize sectionStrength with s ,sectionName with name,currentStudent with zero,
+and studentPtr to memory having size 's' on heap of type Student.
+Section (int s , char name)
+
+3.7 Generate getter setter of each member variable : such that sId should not have negative value, sName
+should never be greater than 50 characters.
+ bool setSectionName(const string &n)
+ string getSectionName()const
+ int getcurrentStudent() const *Note: why there is no setter of CurrentNoSTudents ?
+
+3.8 In Section class write a member function for adding new Student, this function takes arguments: int r
+as rollNo, string n as name, string ad as address, int b as batch and adds a student and also increments
+the data member currentStudent by one .
+bool addStudent(int r, const string &n, const string &ad, int )
+
+3.9 Write a member function which deletes the Student that was added at last.
+bool deleteStudent() *Note: use getCurrentStudent()
+
+3.10 Write a member function which takes roll number as argument, searches a student and returns his name
+if student exist and returns "Not Found" if student does not exist.
+string SearchStudent(int r) (where r stands for roll number of the student)
+
+Task 4
+Write a class called Date that represents a date consisting of a year, month, and day. A Date object should
+have the following methods:
+Date(int year, int month, int day) Constructs a new Date object to represent the given date.
+void addDays(const int &days) Moves this Date object forward by the given number of days.
+hint:* you should decide on the basis of month and year that
+given month ends 30,31,28,29 days.
+void addWeeks(const int &weeks) Moves this Date object forward by the given number of seven-day
+weeks.
+int daysTo(const Date & other) Returns the number of days that this Date must be adjusted to
+make it equal to the given other Date.
+int getDay()const Returns the day value of this date; for example, for the date
+2006/07/22, returns 22.
+int getMonth()const Returns the month value of this date; for example, for the date
+2006/07/22, returns 7.
+int getYear()const Returns the year value of this date; for example, for the date
+2006/07/22, returns 2006.
+bool isLeapYear()const Returns true if the year of this date is a leap year. A leap year
+occurs every four years, except for multiples of 100 that are not
+multiples of 400. For example, 1956, 1844, 1600, and 2000 are
+leap years, but 1983, 2002, 1700, and 1900 are not.
+String toString() Returns a String representation of this date in year/month/day
+order, such as " 2006/07/22 ".
+
+Task 5
+Write a class Point with data members
+ x : a integer x coordinate
+ y : a integer x coordinate
+The class has the following member functions.
+
+4.1 Default constructor initializing the coordinates to zero
+Point()
+
+4.2 A constructor that takes the values and initializes coordinates with x1 and y1
+Point (int x1, int y1)
+
+4.3 a destructor that prints the following statement on screen :"Destructor Called" Point()
+
+4.4 Getter and Setter functions.
+
+Task 6
+Write a class called Line that represents a line segment between two Points . Your Line objects should have
+the following methods:
+Line(const Point &p1, const Point &p2) Constructs a new Line that contains the given two Points.
+Point getP1() const Returns this Line's rst endpoint.
+Point getP2() const Returns this Line's second endpoint.
+String toString() Returns a String representation of this Line, such as "[(22, 3), (4,
+7)]" .
+Line(int x1, int y1, int x2, int y2) Constructs a new Line that contains the given two Points.
+double getSlope() const Returns the slope of this Line. Remember The slope of a line
+between points (x1, y1) and (x2, y2) is equal to (y2-y1)/(x2-x1).
+Task 7
+Write a class called Rectangle that represents a rectangular two-dimensional region. Your Rectangle objects
+should have the following methods:
+Rectangle(int x, int y, int width, int height) Constructs a new Rectangle whose top-left corner is specied by
+the given coordinates and with the given width and height.
+int getHeight()const Returns this Rectangle's height.
+int getWidth()const Returns this Rectangle's width.
+int getX()const Returns this Rectangle's x-coordinate.
+int getY()const Returns this Rectangle's y-coordinate.
+String toString() Returns a String representation of this Rectangle, such as "Rect-
+angle[x=1, y=2, width=3, height=4]".
+Rectangle(const Point & p, int width, int height) Construct a new Rectangle whose top-left corner is specied by
+the given Point and with the given width and height.
+bool contains(const Point &p) Returns whether the given Point or coordinates lie inside the
+bounds of this Rectangle. *Boundary of rectangle is included
+Rectangle union(const Rectangle &rect) Returns a new Rectangle that represents the area occupied by the
+tightest bounding box that contains both this Rectangle and the
+given other Rectangle.
+Rectangle intersection(const Rectangle &rect) Return a new Rectangle that represents the largest rectangular
+region completely contained within both this Rectangle and the
+given other Rectangle. If the Rectangles do not intersect at all,
+returns a Rectangle with width and height both equal to 0.
